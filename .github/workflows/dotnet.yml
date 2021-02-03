@@ -22,8 +22,8 @@ jobs:
       run: dotnet restore src/RearTools.sln
     - name: Build
       run: |  
-        dotnet build  src/RearTools.sln -f netcoreapp3.1 -r win-x64  -v q  --no-restore
-        dotnet pubish src/RearTools.sln -f netcoreapp3.1 -r win-x64  -v q  --no-restore -o dist/
+        dotnet build  src/RearTools.sln -f netcoreapp3.1   -v q  --no-restore
+        dotnet pubish src/RearTools/RearTools.csproj -f netcoreapp3.1 -r win-x64  -v q  --no-restore -o dist/
     - name: deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
