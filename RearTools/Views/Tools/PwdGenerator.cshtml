@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewData["Title"] = "密码生成器";
+
+}
+@section Header{
+    <style>
+        .char-arr {
+            letter-spacing: 4px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+    </style>
+
+}
+@section scripts{
+    <script src="~/js/ng-ajax.js"></script>
+
+    <script src="~/biz/pwdGenerator.js"></script>
+    <script>
+    window.requestUrls = {
+        doGenerate:'@Url.Action("GenerateAPwd")'
+    }
+    </script>
+
+}
+
+
+<div ng-controller="pwd-generator-controller">
+
+    <h3>密码生成器</h3>
+
+    <section>
+        <form>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <div class="form-check mt-2">
+                        <input class="form-check-input " type="checkbox" id="chkLowercaseChars" ng-model="model.isLowercaseChars">
+                        <label class="form-check-label" for="chkLowercaseChars">
+                            包含小写字母
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="sr-only" for="lowercaseChars">包含小写字母</label>
+                    <input type="text" class="form-control char-arr" name="lowercaseChars" value="" ng-model="model.lowercaseChars">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="chkUpercaseChars" ng-model="model.isUpercaseChars">
+                        <label class="form-check-label" for="chkUpercaseChars">
+                            包含大写字母
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="sr-only" for="upercaseChars">包含大写字母</label>
+                    <input type="text" class="form-control char-arr" name="upercaseChars" value="" ng-model="model.upercaseChars">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="chkNumeric" ng-model="model.isNumeric">
+                        <label class="form-check-label" for="chkNumeric">
+                            数字
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="sr-only" for="specialChars">数字</label>
+                    <input type="text" class="form-control char-arr" id="" value="" ng-model="model.numeric">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="chkSpecialChars" ng-model="model.isSpecialChars">
+                        <label class="form-check-label" for="chkSpecialChars">
+                            特殊字符
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="sr-only" for="specialChars">特殊字符</label>
+                    <input type="text" class="form-control char-arr" id="specialChars" value="" ng-model="model.specialChars">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2">
+
+                    <label class="col-form-label">
+                        密码长度
+                    </label>
+
+
+                </div>
+                <div class="col">
+                    <label class="sr-only" for="specialChars">密码长度</label>
+                    <input type="number" class="form-control" id="pwdLen" value="" ng-model="model.pwdLen">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                    <button type="button" id="btnGenerate" class="btn btn-primary">生成</button>
+                </div>
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="exampleInputEmail1">结果:</label>
+                <textarea readonly class="form-control-plaintext" ng-bind="result.pwd" style="border:1px solid #666" id="destChars">无</textarea>
+                <p ng-if="result">
+                    强壮度：<span ng-bind="result.strength "></span>/<span ng-bind="result.maxStrength"></span>
+                </p>
+            </div>
+        </form>
+    </section>
+
+</div>
+
