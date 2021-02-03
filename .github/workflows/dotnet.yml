@@ -29,5 +29,5 @@ jobs:
         server: admin.xigooo.com
         username: rear
         password: pf2dxGG$Fb6lKW*b
-        local-dir: ../dist/
+        local-dir: dist/
         server-dir: /
