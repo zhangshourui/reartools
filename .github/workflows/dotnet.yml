@@ -38,3 +38,5 @@ jobs:
         local-dir: dist/
         server-dir: /
         port: 8021
+        exclude: wwwroot/lib/**
+         - win-x64/**
