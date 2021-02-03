@@ -20,7 +20,7 @@ jobs:
     - name: Go to src
       run: cd src/
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore RearTools.sln
     - name: Build
       run: dotnet build RearTools.sln --no-restore -o ../dist/
     - name: deploy
