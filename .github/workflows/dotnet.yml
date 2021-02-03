@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Go to src
-      run: cd src/ & pwd
+      run: cd src/ & pwd & ll
     - name: Restore dependencies
       run: dotnet restore RearTools.sln
     - name: Build
