@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.swp
 *.*~
 project.lock.json
@@ -67,4 +66,4 @@ msbuild.wrn
 *.exe
 *.out
 *.app
->>>>>>> 311e147844abe79ba868e04314911f13cd72b2e5
+/dist
