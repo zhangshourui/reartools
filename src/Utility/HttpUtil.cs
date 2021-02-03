@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Utility
 {
@@ -149,14 +148,16 @@ namespace Utility
 
         private static Encoding GetRequestEncoding(HttpRequest request)
         {
-            var requestContentType = request.ContentType;
-            var requestMediaType = requestContentType == null ? default(MediaType) : new MediaType(requestContentType);
-            var requestEncoding = requestMediaType.Encoding;
-            if (requestEncoding == null)
-            {
-                requestEncoding = Encoding.UTF8;
-            }
-            return requestEncoding;
+            //var requestContentType = request.ContentType;
+            //var requestMediaType = requestContentType == null ? default(MediaType) : new MediaType(requestContentType);
+            //var requestEncoding = requestMediaType.Encoding;
+            //if (requestEncoding == null)
+            //{
+            //    requestEncoding = Encoding.UTF8;
+            //}
+            //return requestEncoding;
+
+            return Encoding.UTF8;
         }
 
         public static string DumpHttpRequest(HttpRequest request)

@@ -16,6 +16,8 @@ namespace Utility
         /// <returns></returns>
         public static string GetConfigString(string key)
         {
+            hostContext.Configuration.GetSection("AppSettings");
+
             string CacheKey = "AppSettings-" + key;
             object objModel = DataCache.GetCache(CacheKey);
             if (objModel == null)
