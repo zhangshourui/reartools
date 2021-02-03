@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Go to src
-      run: cd src/ & pwd & ls -i
+     
     - name: Restore dependencies
-      run: dotnet restore RearTools.sln
+      run: dotnet restore src/RearTools.sln
     - name: Build
-      run: dotnet build RearTools.sln --no-restore -o ../dist/
+      run: dotnet build src/RearTools.sln --no-restore -o dist/
     - name: deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
