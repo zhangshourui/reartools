@@ -1,0 +1,32 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: cd src/
+          dotnet restore
+    - name: Build
+      run: dotnet build RearTools.sln --no-restore -o ../dist/
+    - name: deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: admin.xigooo.com
+        username: rear
+        password: pf2dxGG$Fb6lKW*b
+        local-dir: ../dist/
+        server-dir: /
