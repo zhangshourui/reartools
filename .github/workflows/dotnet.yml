@@ -30,3 +30,4 @@ jobs:
         password: pf2dxGG$Fb6lKW*b
         local-dir: dist/
         server-dir: /
+        port: 8021
